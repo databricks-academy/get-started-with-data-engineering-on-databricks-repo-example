@@ -11,4 +11,10 @@ display(sdf)
 
 # COMMAND ----------
 
-
+# MAGIC %sql
+# MAGIC CREATE TABLE IF NOT EXISTS customers_bronze;
+# MAGIC COPY INTO customers_bronze
+# MAGIC     FROM 'dbfs:/mnt/dbacademy-datasets/get-started-with-data-engineering-on-databricks/v01/'
+# MAGIC     FILEFORMAT = CSV
+# MAGIC     FORMAT_OPTIONS ('inferSchema' = 'true', 'header' = 'true')
+# MAGIC     COPY_OPTIONS ('mergeSchema' = 'true')
